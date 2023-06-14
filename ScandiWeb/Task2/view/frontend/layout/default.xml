@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * ScandiWeb_Task2 Module
+ *
+ * @category  ScandiWeb
+ * @package   ScandiWeb_Task2
+ * @author    Dawood Gondal
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="head.additional">
+            <block class="ScandiWeb\Task2\Block\Button" name="scandi.button.changer" template="ScandiWeb_Task2::head.phtml" after="-" />
+        </referenceBlock>
+    </body>
+</page>

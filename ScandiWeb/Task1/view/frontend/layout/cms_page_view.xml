@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * ScandiWeb_Task1 Module
+ *
+ * @category  ScandiWeb
+ * @package   ScandiWeb_Task1
+ * @author    Dawood Gondal
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="head.additional">
+            <block class="ScandiWeb\Task1\Block\HeadMetaTag" name="scandi.header.meta.tag" template="ScandiWeb_Task1::header/metaTag.phtml"/>
+        </referenceBlock>
+    </body>
+</page>

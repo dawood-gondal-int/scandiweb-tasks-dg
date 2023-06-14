@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * ScandiWeb_Task1 Module
+ *
+ * @category  ScandiWeb
+ * @package   ScandiWeb_Task1
+ * @author    Dawood Gondal
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="ScandiWeb_Task1">
+        <sequence>
+            <module name="Magento_Cms"/>
+        </sequence>
+    </module>
+</config>

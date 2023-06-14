@@ -1,0 +1,13 @@
+<?php
+/** @var $block \ScandiWeb\Task2\Block\Button */
+
+$buttonBgColor = $block->getButtonColor();
+?>
+
+<style>
+    :root {
+    <?php if (isset($buttonBgColor)): ?>
+        --button-bg: #<?php echo $buttonBgColor; ?>;
+    <?php endif; ?>
+    }
+</style>

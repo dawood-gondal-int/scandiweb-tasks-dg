@@ -1,0 +1,17 @@
+{
+    "name": "scandiweb/task3",
+    "description": "ScandiWeb_Task3",
+    "version": "1.0.0",
+    "type": "magento2-module",
+    "require": {
+        "php": "~7.4.0||~8.1.0"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "ScandiWeb\\Task3\\": ""
+        }
+    }
+}
