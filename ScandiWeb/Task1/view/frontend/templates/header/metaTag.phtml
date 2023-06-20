@@ -4,4 +4,11 @@
  */
 ?>
 
-<?= $block->getHreflangTags(); ?>
+<?php
+$hreflangTags = $block->getHreflangTags();
+if ($hreflangTags && is_array($hreflangTags)) {
+    foreach ($hreflangTags as $hreflangTag) {
+        echo $hreflangTag . "\n";
+    }
+}
+?>

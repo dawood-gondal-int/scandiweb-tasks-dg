@@ -39,21 +39,42 @@ class HeadMetaTag extends Template
     }
 
     /**
-     * @return string
+     * @return array
      */
-    public function getHreflangTags(): string
+    public function getHreflangTags(): array
     {
-        $tag = "";
+        $tags = [];
         try {
-            $store = $this->_storeManager->getStore();
-            $languageCode = $store->getConfig('general/locale/code');
-            $baseUrl = $store->getBaseUrl();
             $cmsPageUrl = $this->cmsPage->getIdentifier();
-            $tag = '<link rel="alternate" hreflang="' . $languageCode . '" href="' . $baseUrl . $cmsPageUrl . '" />';
+            $assignedToStores = $this->cmsPage->getStores();
+            $allStores = false;
+            foreach ($assignedToStores as $assignedToStore) {
+                // If cms page is assigned to all stores or specific store
+                if ($assignedToStore == 0) {
+                    $allStores = true;
+                    break;
+                } else {
+                    $store = $this->_storeManager->getStore($assignedToStore);
+                    $baseUrl = $store->getBaseUrl();
+                    $languageCode = $store->getConfig('general/locale/code');
+                    $tag = '<link rel="alternate" hreflang="' . $languageCode . '" href="' . $baseUrl . $cmsPageUrl . '" />';
+                    $tags[] = $tag;
+                }
+            }
+
+            if ($allStores) {
+                $stores = $this->_storeManager->getStores();
+                foreach ($stores as $store) {
+                    $baseUrl = $store->getBaseUrl();
+                    $languageCode = $store->getConfig('general/locale/code');
+                    $tag = '<link rel="alternate" hreflang="' . $languageCode . '" href="' . $baseUrl . $cmsPageUrl . '" />';
+                    $tags[] = $tag;
+                }
+            }
         } catch (NoSuchEntityException $exception) {
             $this->_logger->critical("Error occurred: " . $exception->getMessage());
         }
 
-        return $tag;
+        return $tags;
     }
 }
